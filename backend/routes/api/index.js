@@ -9,9 +9,9 @@ router.use('/users', usersRouter);
 //reminder, all route urls here will be prefixed
 //by default with '/api'
 
-router.post('/test', function(req, res) {
-    res.json({ requestBody: req.body });
-  });
+// router.post('/test', function(req, res) {
+//     res.json({ requestBody: req.body });
+//   });
 
 
 
