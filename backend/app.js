@@ -28,6 +28,7 @@ if (!isProduction) {
     contentSecurityPolicy: false
   }));
     // Set the _csrf token and create req.csrfToken method
+    //TODO, comment back in after Postman testing
   app.use(
     csurf({
       cookie: {
