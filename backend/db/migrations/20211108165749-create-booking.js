@@ -15,8 +15,7 @@ module.exports = {
       },
       spotOwnerId: {
         allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {model: 'Spots'}
+        type: Sequelize.INTEGER
       },
       clientId: {
         allowNull: false,
