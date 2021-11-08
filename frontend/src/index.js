@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import Favicon from 'react-favicon'
 import "./index.css";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
@@ -34,6 +35,7 @@ function Root() {
 
 ReactDOM.render(
   <React.StrictMode>
+    <Favicon url='https://res.cloudinary.com/dfy0z2yzj/image/upload/v1636347984/favicon_eqfcau.png' />
     <Root />
   </React.StrictMode>,
   document.getElementById('root')
