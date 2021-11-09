@@ -1,5 +1,4 @@
-//added for xsrf token
-import Cookies from 'js-cookie'
+import { csrfFetch } from './csrf';
 
 
 // Define Action Types as Constants
@@ -37,9 +36,9 @@ export const getAllSpots = () => async dispatch => {
   };
 
 export const addSpot = spot => async dispatch => {
-  const response = await fetch('/api/spots', {
+  const response = await csrfFetch('/api/spots', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'XSRF-TOKEN': Cookies.get('XSRF-TOKEN')},
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(spot),
 });
 
@@ -52,7 +51,7 @@ export const addSpot = spot => async dispatch => {
 
 
 export const deleteSpot = id => async dispatch => {
-    const response = await fetch(`/api/spots/${id}`, {
+    const response = await csrfFetch(`/api/spots/${id}`, {
       method: 'DELETE',
     });
   

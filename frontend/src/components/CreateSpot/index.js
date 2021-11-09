@@ -16,6 +16,7 @@ const CreateSpot = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user)
 
+  console.log(sessionUser)
   const handleSubmit = (e) => {
     e.preventDefault();
     const payload = {
