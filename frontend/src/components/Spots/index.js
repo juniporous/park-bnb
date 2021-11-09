@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllSpots } from "../../store/spots";
 import { deleteSpot } from "../../store/spots";
-
+import EditSpotForm from "../UpdateSpot";
 
 const Spots = () => {
   const dispatch = useDispatch();
@@ -23,11 +23,16 @@ const Spots = () => {
         spots test
         <ul>
           {spots?.map(spot => (
+            spot.id?
             <li key={spot.id}>Spot {spot.id} - {spot.address}, {spot.city}
               <button onClick={() => handleDelete(spot.id)}>
               Delete
               </button>
-            </li>
+              <div>
+                <EditSpotForm spotId={spot.id}/>
+              </div>
+            </li> 
+            : null
           ))}
         </ul>
     </div>

@@ -5,6 +5,7 @@ import { csrfFetch } from './csrf';
 const ADD_SPOTS = 'spots/addSpots'
 const ADD_ONE_SPOT = 'spots/addOneSpot'
 const REMOVE_ONE_SPOT = 'spot/removeOneSpot';
+const UPDATE_ONE_SPOT = 'spot/updateSpot'
 
 
 // Define Action Creators
@@ -21,6 +22,11 @@ const addOneSpot = payload => {
         payload
     }
 }
+
+const updateOneSpot = (payload) => ({
+    type: UPDATE_ONE_SPOT,
+    payload
+  });
 
 const removeOneSpot = id => {
     return { type: REMOVE_ONE_SPOT, payload: id };
@@ -48,6 +54,21 @@ export const addSpot = spot => async dispatch => {
   }
 };
 
+export const updateSpot = (data) => async (dispatch) => {
+    const response = await csrfFetch(`/api/spots/${data.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+  
+    if (response.ok) {
+      const spot = await response.json();
+      dispatch(updateOneSpot(spot));
+      return spot;
+    }
+  };
 
 
 export const deleteSpot = id => async dispatch => {
@@ -74,6 +95,12 @@ const spotReducer = (state = initialState, action) => {
         case ADD_ONE_SPOT:
             newState = { ...state, [action.payload.id]: action.payload};
             return newState;
+        case UPDATE_ONE_SPOT: {
+            return {
+              ...state,
+              [action.payload.id]: action.payload
+            };
+          }
         case REMOVE_ONE_SPOT:
             newState = { ...state };
             delete newState[action.payload];
