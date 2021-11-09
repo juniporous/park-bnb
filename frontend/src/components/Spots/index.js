@@ -11,7 +11,7 @@ const Spots = () => {
     dispatch(getAllSpots());
   }, [dispatch])
   const sessionUser = useSelector((state) => state.session.user)
-
+  console.log(sessionUser.id)
   const mySpots = spots.find(spot => spot.ownerId === sessionUser.id)
   console.log(mySpots)
 
@@ -20,10 +20,10 @@ const Spots = () => {
   };
   return (
     <div>
-        spots test
+        My Spots
         <ul>
           {spots?.map(spot => (
-            spot.id?
+            spot.ownerId === sessionUser.id?
             <li key={spot.id}>Spot {spot.id} - {spot.address}, {spot.city}
               <button onClick={() => handleDelete(spot.id)}>
               Delete
