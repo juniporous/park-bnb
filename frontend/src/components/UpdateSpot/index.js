@@ -20,9 +20,11 @@ const EditSpotForm = ({ spotId }) => {
     };
 
     const updatedName = await dispatch(updateSpot(payload));
+
   };
 
   return (
+    <>
     <section>
       <form onSubmit={handleSubmit}>
         <input
@@ -33,6 +35,12 @@ const EditSpotForm = ({ spotId }) => {
         <button className='update-button' type="submit">Update Spot Name</button>
       </form>
     </section>
+    {!name?
+      <ul>
+        <li className='error-text'>Name Field Required</li>
+      </ul> : null
+    }
+    </>
   );
 };
 
