@@ -14,7 +14,6 @@ module.exports = {
         references: {model: 'Spots'}
       },
       spotOwnerId: {
-        allowNull: false,
         type: Sequelize.INTEGER
       },
       clientId: {
@@ -24,11 +23,11 @@ module.exports = {
       },
       startDate: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATEONLY
       },
       endDate: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATEONLY
       },
       createdAt: {
         allowNull: false,
