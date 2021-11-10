@@ -8,7 +8,10 @@ const NavBar = () => {
         <NavLink activeClassName='navlink-text' to='/'>My Spots</NavLink>
       </div>
       <div className='navlink-text'>
-        <NavLink  to='/create'>Create</NavLink>
+        <NavLink  to='/create'>Create Spot</NavLink>
+      </div>
+      <div className='navlink-text'>
+      <NavLink  to='/spots'>Book Spot</NavLink>
       </div>
     </div>
   );
