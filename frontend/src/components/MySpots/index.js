@@ -30,7 +30,7 @@ const Spots = () => {
             <li key={spot.id}>
               <div class="card">
                 <div>
-                  <img className='img' src={spot.imgUrl}/>
+                  <img className='img' src={spot.imgUrl} alt='No Image For This Spot'/>
                 </div>
                 <div class="container">
                   <h4>{spot.name}</h4>

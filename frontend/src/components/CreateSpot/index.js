@@ -6,7 +6,6 @@ import './createSpot.css'
 
 const CreateSpot = () => {
   const [name, setName] = useState('');
-  const [ownerId, setOwnerId] = useState('');
   const [state, setState] = useState('');
   const [city, setCity] = useState('');
   const [address, setAddress] = useState('');
@@ -49,14 +48,9 @@ const CreateSpot = () => {
   if (!sessionUser) return <Redirect to="/" />;
 
   return (
-    <div >
+    <div className='div-wrapper'>
       <h3>Add A Spot</h3>
       <form onSubmit={handleSubmit} >
-      <ul>
-        {errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
-        ))}
-      </ul>
       <div>
           <label>
             <input
@@ -131,6 +125,11 @@ const CreateSpot = () => {
           Add Spot
         </button>
       </form>
+      <ul>
+        {errors.map((error, idx) => (
+          <li className='error-text' key={idx}>{error}</li>
+        ))}
+      </ul>
     </div>
   );
 };
