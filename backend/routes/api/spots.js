@@ -96,7 +96,7 @@ router.put(
             spot.description = req.body.description || spot.description;
 
             await spot.save();
-            res.json({ spot });
+            res.json(spot);
         } else {
             next(spotNotFoundError(req.params.id))
         }
