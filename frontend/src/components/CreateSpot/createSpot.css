@@ -1,0 +1,42 @@
+.credential-div {
+    position: relative;
+    top: 10px;
+    margin:auto;
+    padding: 25px;
+    width:40%;
+}
+
+.login-input {
+    padding: 5px;
+    margin: 4px 0;
+    border: 1px solid gray;
+}
+
+.login-label {
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.password-div {
+    position: relative;
+    top: -20px;
+    margin:auto;
+    padding: 25px;
+    width:40%;
+}
+
+.button-div {
+    position: relative;
+    top: -40px;
+    left: 80px;
+    padding: 25px;
+    width:40%;
+}
+
+
+.button-login {
+    color:white;
+    background-color: black;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px 15px;
+}

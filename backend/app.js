@@ -29,16 +29,16 @@ if (!isProduction) {
   }));
     // Set the _csrf token and create req.csrfToken method
     //TODO, comment back in after Postman testing
-  app.use(
-    csurf({
-      cookie: {
-        secure: isProduction,
-        sameSite: isProduction && "Lax",
-        //httpOnly true, so can't be read by js
-        httpOnly: true,
-      },
-    })
-  );
+  // app.use(
+  //   csurf({
+  //     cookie: {
+  //       secure: isProduction,
+  //       sameSite: isProduction && "Lax",
+  //       //httpOnly true, so can't be read by js
+  //       httpOnly: true,
+  //     },
+  //   })
+  // );
 //PRE-REQUEST MWARE
 
 const routes = require('./routes');
