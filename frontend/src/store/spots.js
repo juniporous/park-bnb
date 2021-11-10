@@ -96,7 +96,6 @@ const spotReducer = (state = initialState, action) => {
             newState = { ...state, [action.payload.id]: action.payload};
             return newState;
         case UPDATE_ONE_SPOT:
-          console.log('!!!!!', action.payload.id) 
         newState = { ...state, [action.payload.id]: { ...action.payload } }
         return newState;
         case REMOVE_ONE_SPOT:

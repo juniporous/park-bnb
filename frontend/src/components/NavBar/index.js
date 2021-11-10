@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <div className='navbar-div'>
       <div>
-        <NavLink activeClassName='navlink-text' to='/'>My Spots</NavLink>
+        <NavLink activeClassName='navlink-text' to='/mySpots'>My Spots</NavLink>
       </div>
       <div className='navlink-text'>
         <NavLink  to='/create'>Create Spot</NavLink>
