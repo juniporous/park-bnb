@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateSpot } from '../../store/spots';
+import './updateSpot.css'
 
 const EditSpotForm = ({ spotId }) => {
   const spot = useSelector(state => state.spot[spotId]);
@@ -19,9 +20,11 @@ const EditSpotForm = ({ spotId }) => {
     };
 
     const updatedName = await dispatch(updateSpot(payload));
+
   };
 
   return (
+    <>
     <section>
       <form onSubmit={handleSubmit}>
         <input
@@ -29,9 +32,15 @@ const EditSpotForm = ({ spotId }) => {
           placeholder="Name"
           value={name}
           onChange={updateName} />
-        <button type="submit">Update Spot Name</button>
+        <button className='update-button' type="submit">Update Spot Name</button>
       </form>
     </section>
+    {!name?
+      <ul>
+        <li className='error-text'>Name Field Required</li>
+      </ul> : null
+    }
+    </>
   );
 };
 
