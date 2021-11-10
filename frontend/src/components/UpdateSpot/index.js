@@ -32,7 +32,9 @@ const EditSpotForm = ({ spotId }) => {
           placeholder="Name"
           value={name}
           onChange={updateName} />
-        <button className='update-button' type="submit">Update Spot Name</button>
+        <button className='update-button' type="submit">
+          Update Spot Name
+        </button>
       </form>
     </section>
     {!name?

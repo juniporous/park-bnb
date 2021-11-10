@@ -54,6 +54,16 @@ export const addSpot = spot => async dispatch => {
   }
 };
 
+export const deleteSpot = id => async dispatch => {
+  const response = await csrfFetch(`/api/spots/${id}`, {
+    method: 'DELETE',
+  });
+
+  if (response.ok) {
+    dispatch(removeOneSpot(id));
+  }
+};
+
 export const updateSpot = (data) => async (dispatch) => {
     const response = await csrfFetch(`/api/spots/${data.id}`, {
       method: 'PUT',
@@ -71,16 +81,6 @@ export const updateSpot = (data) => async (dispatch) => {
   };
 
 
-export const deleteSpot = id => async dispatch => {
-    const response = await csrfFetch(`/api/spots/${id}`, {
-      method: 'DELETE',
-    });
-  
-    if (response.ok) {
-      dispatch(removeOneSpot(id));
-    }
-  };
-
 // Define an initial state
 const initialState = {};
 
@@ -95,12 +95,9 @@ const spotReducer = (state = initialState, action) => {
         case ADD_ONE_SPOT:
             newState = { ...state, [action.payload.id]: action.payload};
             return newState;
-        case UPDATE_ONE_SPOT: {
-            return {
-              ...state,
-              [action.payload.id]: action.payload
-            };
-          }
+        case UPDATE_ONE_SPOT: 
+        newState = { ...state, [action.payload.id]: { ...action.payload } }
+        return newState;
         case REMOVE_ONE_SPOT:
             newState = { ...state };
             delete newState[action.payload];
