@@ -30,7 +30,7 @@ li:not(:last-child) {
   .container {
     padding: 4px 16px;
     position: relative;
-    bottom: 30px
+    bottom: 25px
   }
 
   .img {

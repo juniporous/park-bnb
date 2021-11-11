@@ -25,7 +25,7 @@ const AllSpots = () => {
   return (
     <div>
         <h3 className='spots-header'>
-          Book Spots
+          Book A Spot
         </h3>
         <ul className='ul'>
           {spots?.map(spot => (
