@@ -1,0 +1,54 @@
+.spots-header {
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    left: 40px;
+}
+
+.ul {
+    list-style-type: none
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 95%;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 darkgrey;
+  }
+  
+  /* Add some padding inside the card container */
+  .container {
+    padding: 4px 16px;
+    position: relative;
+    bottom: 30px
+  }
+
+  .img {
+    float: left;
+    width:  200px;
+    height: 200px;
+    background-size: cover;
+}
+
+.delete-button-div {
+    position: absolute;
+    top: 18px;
+    right: 5px;
+}
+
+.delete-button {
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
