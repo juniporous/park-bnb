@@ -13,6 +13,9 @@ const NavBar = () => {
       <div className='navlink-text'>
       <NavLink  to='/spots'>Book Spot</NavLink>
       </div>
+      <div className='navlink-text'>
+      <NavLink  to='/bookings'>My Bookings</NavLink>
+      </div>
     </div>
   );
 };
