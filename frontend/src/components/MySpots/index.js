@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAllSpots } from "../../store/spots";
 import { deleteSpot } from "../../store/spots";
 import { updateSpot } from "../../store/spots";
+import { useHistory } from "react-router";
 import EditSpotForm from "../UpdateSpot";
 import './spots.css'
 
@@ -16,7 +17,11 @@ const Spots = () => {
   
   //const mySpots = spots.find(spot => spot.ownerId === sessionUser.id)
 
+  const history = useHistory();
 
+  if(!sessionUser) {
+    history.push('/')
+  }
 
   const handleDelete = (id) => {
     dispatch(deleteSpot(id));

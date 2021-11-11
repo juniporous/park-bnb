@@ -4,6 +4,8 @@ import { useHistory, Redirect } from 'react-router-dom';
 import { addSpot } from '../../store/spots';
 import './createSpot.css'
 
+
+
 const CreateSpot = () => {
   const [name, setName] = useState('');
   const [state, setState] = useState('');
@@ -15,6 +17,9 @@ const CreateSpot = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user)
+  if(!sessionUser) {
+    history.push('/')
+  }
 
   const id = sessionUser.id
 

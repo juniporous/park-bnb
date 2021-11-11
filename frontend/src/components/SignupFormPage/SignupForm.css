@@ -1,0 +1,39 @@
+.signup-wrapper-div {
+    display: flex;
+    justify-content: center;
+
+}
+
+
+
+.login-label {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-input {
+    padding: 5px;
+    margin: 6px 0;
+    border: 1px solid gray;
+}
+
+.signup-header {
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    left: 15px;
+}
+
+.signup-button-div {
+    position: relative;
+    top: -20px;
+    left: -21px;
+    padding: 25px;
+    width: 85%
+}
+
+.login-button {
+    color: white;
+    padding: 5px 15px;
+    width: 110%;
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}

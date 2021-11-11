@@ -7,6 +7,9 @@ import { useHistory } from "react-router";
 import CreateBooking from "../CreateBooking";
 import './allSpots.css'
 
+
+
+
 const AllSpots = () => {
   const dispatch = useDispatch();
   const spots = useSelector(state => Object.values(state.spot));
@@ -19,8 +22,12 @@ const AllSpots = () => {
     dispatch(getAllBookings());
   }, [dispatch])
 
+  const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user)
 
+  if(!sessionUser) {
+    history.push('/')
+  }
   
   return (
     <div>
