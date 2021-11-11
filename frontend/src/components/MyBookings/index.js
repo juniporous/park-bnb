@@ -2,17 +2,15 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllSpots } from "../../store/spots";
 import { getAllBookings } from "../../store/bookings";
-import { deleteSpot } from "../../store/spots";
-import { updateSpot } from "../../store/spots";
-import EditSpotForm from "../UpdateSpot";
+
 // import './spots.css'
 
 const MyBookings = () => {
   const dispatch = useDispatch();
-  const spots = useSelector(state => Object.values(state.spot));
-  useEffect(() => {
-    dispatch(getAllSpots());
-  }, [dispatch])
+//   const spots = useSelector(state => Object.values(state.spot));
+//   useEffect(() => {
+//     dispatch(getAllSpots());
+//   }, [dispatch])
 
   const bookings = useSelector(state => Object.values(state.booking));
   useEffect(() => {
@@ -20,9 +18,6 @@ const MyBookings = () => {
   }, [dispatch])
 
   const sessionUser = useSelector((state) => state.session.user)
-  
-  //const mySpots = spots.find(spot => spot.ownerId === sessionUser.id)
-  console.log('!!!!!!', bookings)
 
 
 //   const handleDelete = (id) => {
