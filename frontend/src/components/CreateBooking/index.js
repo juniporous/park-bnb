@@ -24,7 +24,7 @@ const CreateBooking = ({ spotId, spotOwnerId }) => {
     const [errors, setErrors] = useState([]);
     const history = useHistory();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setErrors([]);
         const payload = {
@@ -34,19 +34,22 @@ const CreateBooking = ({ spotId, spotOwnerId }) => {
           startDate,
           endDate,
         };
-        //dispatch(addSpot(payload));
+        
+        if (endDate && startDate) {
+          history.push('/bookings')
+        }
+
         return dispatch(addBooking(payload)).catch(
           async (res) => {
             const data = await res.json();
             if (data && data.errors) {
               setErrors(data.errors)
-            } else {
-              history.push('/');
-            }
+            } 
           } 
         );
         
-        //history.push('/');
+        
+
       };
       
       return (
