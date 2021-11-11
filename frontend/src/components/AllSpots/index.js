@@ -1,6 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllSpots } from "../../store/spots";
+import { getAllBookings } from "../../store/bookings";
+import { addBooking } from "../../store/bookings";
+import { useHistory } from "react-router";
+import CreateBooking from "../CreateBooking";
 import './allSpots.css'
 
 const AllSpots = () => {
@@ -10,10 +14,18 @@ const AllSpots = () => {
     dispatch(getAllSpots());
   }, [dispatch])
 
+  const bookings = useSelector(state => Object.values(state.booking));
+  useEffect(() => {
+    dispatch(getAllBookings());
+  }, [dispatch])
+
+  const sessionUser = useSelector((state) => state.session.user)
+
+  
   return (
     <div>
         <h3 className='spots-header'>
-          All The Spots
+          Book A Spot
         </h3>
         <ul className='ul'>
           {spots?.map(spot => (
@@ -26,6 +38,7 @@ const AllSpots = () => {
                   <h4>{spot.name}</h4>
                   <p>{spot.address}, {spot.city} {spot.state}</p>
                   <p>{spot.description}</p>
+                  <CreateBooking spotId={spot.id} spotOwnerId={spot.ownerId}/>
                 </div>
               </div>
             </li> 

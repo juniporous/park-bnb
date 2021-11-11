@@ -1,0 +1,13 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.errors {
+    position: relative;
+    top: 10px
+}
+
+.error-text {
+    padding-bottom: 17px;
+}

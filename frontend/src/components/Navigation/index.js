@@ -30,9 +30,9 @@ function Navigation({ isLoaded }){
 
   return (
     <div className='nav'>
-        <div className='home-div'>
+        {/* <div className='home-div'>
           <NavLink exact to="/">Home</NavLink>
-        </div>
+        </div> */}
         
         {isLoaded && sessionLinks}
     </div>

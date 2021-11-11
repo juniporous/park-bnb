@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import Spots from "./components/MySpots";
 import CreateSpot from "./components/CreateSpot";
 import AllSpots from "./components/AllSpots";
+import MyBookings from "./components/MyBookings";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route exact path="/">
+          <Route path="/mySpots">
             <Spots/>
           </Route>
           <Route path="/create">
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route path="/spots">
             <AllSpots/>
+          </Route>
+          <Route path="/bookings">
+            <MyBookings/>
           </Route>
         </Switch>
       )}
