@@ -44,10 +44,13 @@ const CreateBooking = ({ spotId, spotOwnerId }) => {
           <label>
             <input
               className = 'login-input'
+              type="date"
+              max={endDate}
               onChange={(e) => setStartDate(e.target.value)}
               // ; setSpotId(spot.id); setSpotOwnerId(spot.ownerId); setClientId(sessionUser.id)
               value={startDate}
               placeholder='Start Date  yyyy-mm-dd'
+
             />
           </label>
         </div>
@@ -55,6 +58,8 @@ const CreateBooking = ({ spotId, spotOwnerId }) => {
           <label>
             <input
               className = 'login-input'
+              type="date"
+              min={startDate}
               onChange={(e) => setEndDate(e.target.value)}
               value={endDate}
               placeholder='End date   yyyy-mm-dd'
