@@ -45,11 +45,9 @@ const CreateBooking = ({ spotId, spotOwnerId }) => {
           endDate,
         };
         
-        if (endDate && startDate) {
-          history.push('/bookings')
-        }
+        
 
-        return dispatch(addBooking(payload)).catch(
+        dispatch(addBooking(payload)).catch(
           async (res) => {
             const data = await res.json();
             if (data && data.errors) {
@@ -58,7 +56,9 @@ const CreateBooking = ({ spotId, spotOwnerId }) => {
           } 
         );
         
-        
+        if (endDate && startDate) {
+          history.push('/bookings')
+        }
 
       };
       
