@@ -54,7 +54,7 @@ const CreateSpot = () => {
 
   return (
     <div className='div-wrapper'>
-      <h3>Add A Spot</h3>
+      <h3 className='header'>Add A Spot</h3>
       <form onSubmit={handleSubmit} >
       <div>
           <label>

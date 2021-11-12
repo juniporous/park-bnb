@@ -15,7 +15,7 @@ const SplashPage = () => {
   const history = useHistory();
 
   if(sessionUser) {
-    history.push('/bookings')
+    history.push('/mySpots')
   }
 
   const demoLogin = e => {
