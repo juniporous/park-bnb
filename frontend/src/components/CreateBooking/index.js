@@ -29,7 +29,6 @@ const CreateBooking = ({ spotId, spotOwnerId }) => {
     
     const sessionUser = useSelector((state) => state.session.user)
     if(!sessionUser) {
-      // history.push('/');
       return <Redirect to="/" />;
     }
     const clientId = sessionUser.id
