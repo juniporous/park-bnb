@@ -1,0 +1,19 @@
+.splash-wrapper-div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.horizontal-center-div {
+    margin: auto;
+}
+
+.arial-font {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.center-text {
+    position: relative;
+    left: 83px;
+    font-family: Arial, Helvetica, sans-serif;
+}
