@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { addSpot } from '../../store/spots';
 import './createSpot.css'
 
 
 
 const CreateSpot = () => {
+  
   const [name, setName] = useState('');
   const [state, setState] = useState('');
   const [city, setCity] = useState('');
@@ -14,16 +15,17 @@ const CreateSpot = () => {
   const [imgUrl, setImgUrl] = useState('');
   const [description, setDescription] = useState('');
   const [errors, setErrors] = useState([]);
-  const history = useHistory();
+  
   const dispatch = useDispatch();
+  
   const sessionUser = useSelector((state) => state.session.user)
   if(!sessionUser) {
-    history.push('/')
+    // history.push('/');
+    return <Redirect to="/" />;
   }
-
+  
   const id = sessionUser.id
 
-  console.log(sessionUser)
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
@@ -42,15 +44,13 @@ const CreateSpot = () => {
         const data = await res.json();
         if (data && data.errors) {
           setErrors(data.errors)
-        } else {
-          history.push('/');
-        }
+        } 
       } 
     );
     //history.push('/');
   };
 
-  if (!sessionUser) return <Redirect to="/" />;
+  
 
   return (
     <div className='div-wrapper'>

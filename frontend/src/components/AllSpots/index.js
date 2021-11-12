@@ -12,6 +12,12 @@ import './allSpots.css'
 
 const AllSpots = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const sessionUser = useSelector((state) => state.session.user)
+
+  if(!sessionUser) {
+    history.push('/')
+  }
   const spots = useSelector(state => Object.values(state.spot));
   useEffect(() => {
     dispatch(getAllSpots());
@@ -22,12 +28,7 @@ const AllSpots = () => {
     dispatch(getAllBookings());
   }, [dispatch])
 
-  const history = useHistory();
-  const sessionUser = useSelector((state) => state.session.user)
-
-  if(!sessionUser) {
-    history.push('/')
-  }
+  
   
   return (
     <div>

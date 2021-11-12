@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllSpots } from "../../store/spots";
 import { getAllBookings } from "../../store/bookings";
+import { useHistory, Redirect } from "react-router";
+
 
 // import './spots.css'
 
@@ -18,11 +20,11 @@ const MyBookings = () => {
   }, [dispatch])
 
   const sessionUser = useSelector((state) => state.session.user)
+  if(!sessionUser) {
+    // history.push('/');
+    return <Redirect to="/" />;
+  }
 
-
-//   const handleDelete = (id) => {
-//     dispatch(deleteSpot(id));
-//   };
   return (
     <div>
         <h3 className='spots-header'>
@@ -44,11 +46,6 @@ const MyBookings = () => {
                   <div>
                   </div>
                 </div>
-                {/* <div className='delete-button-div'>
-                    <button className='delete-button' onClick={() => handleDelete(spot.id)}>
-                    Delete Spot
-                    </button>
-                </div> */}
               </div>
             </li> 
             : null //end of ternary from line 27
@@ -57,4 +54,5 @@ const MyBookings = () => {
     </div>
   );
 };
+
 export default MyBookings;

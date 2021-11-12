@@ -1,21 +1,32 @@
-import { useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllSpots } from "../../store/spots";
+import sessionActions from "../../store/session"
 import { useHistory } from "react-router";
-import EditSpotForm from "../UpdateSpot";
+
+
 import './splash.css'
 
 const SplashPage = () => {
- 
+  const dispatch = useDispatch()
   const sessionUser = useSelector((state) => state.session.user)
   
   //const mySpots = spots.find(spot => spot.ownerId === sessionUser.id)
-
+  const [errors, setErrors] = useState([]);
   const history = useHistory();
 
   if(sessionUser) {
     history.push('/bookings')
   }
+
+  const demoLogin = e => {
+    e.preventDefault();
+    setErrors([]);
+    return dispatch(sessionActions.login({ credential: "Demo-lition", password: "password" }))
+        .catch(async (res) => {
+            const data = await res.json();
+            if (data && data.errors) setErrors(data.errors);
+        });
+}
 
   
   return (
@@ -36,7 +47,9 @@ const SplashPage = () => {
                 Book a parking spot, rent out your own...
             </p>
             <h3 className='center-text'>with ParkBnb</h3>
-
+            <div className='button-div'>
+            <button onClick={demoLogin}>Log in as guest</button>
+            </div>
         </div>
        
     </div>

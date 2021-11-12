@@ -9,19 +9,25 @@ import './spots.css'
 
 const Spots = () => {
   const dispatch = useDispatch();
-  const spots = useSelector(state => Object.values(state.spot));
-  useEffect(() => {
-    dispatch(getAllSpots());
-  }, [dispatch])
   const sessionUser = useSelector((state) => state.session.user)
-  
-  //const mySpots = spots.find(spot => spot.ownerId === sessionUser.id)
-
   const history = useHistory();
 
   if(!sessionUser) {
     history.push('/')
   }
+  const spots = useSelector(state => Object.values(state.spot));
+  useEffect(() => {
+    dispatch(getAllSpots());
+  }, [dispatch])
+  // const sessionUser = useSelector((state) => state.session.user)
+  
+  // //const mySpots = spots.find(spot => spot.ownerId === sessionUser.id)
+
+  // const history = useHistory();
+
+  // if(!sessionUser) {
+  //   history.push('/')
+  // }
 
   const handleDelete = (id) => {
     dispatch(deleteSpot(id));
@@ -33,7 +39,7 @@ const Spots = () => {
         </h3>
         <ul className='ul'>
           {spots?.map(spot => (
-            spot.ownerId === sessionUser.id?
+            spot?.ownerId === sessionUser?.id?
             <li key={spot.id}>
               <div class="card">
                 <div>

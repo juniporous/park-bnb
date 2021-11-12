@@ -17,3 +17,15 @@
     left: 83px;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.login-button {
+    position: relative;
+    right: 26px;
+    top: 10px;
+    color: white;
+    padding: 5px 15px;
+    width: 110%;
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}

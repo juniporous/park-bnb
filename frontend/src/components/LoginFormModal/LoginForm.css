@@ -18,7 +18,7 @@
 
 .password-div {
     position: relative;
-    top: -20px;
+    top: -10px;
     margin:auto;
     padding: 25px;
     width:40%;
@@ -27,12 +27,12 @@
 .button-div {
     position: relative;
     top: -40px;
-    left: 80px;
+    left: 50px;
     padding: 25px;
     width:40%;
 }
 
-.login-button {
+.login-buttonn {
     color: white;
     padding: 5px 15px;
     width: 110%;
