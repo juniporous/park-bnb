@@ -48,7 +48,7 @@ const SplashPage = () => {
             </p>
             <h3 className='center-text'>with ParkBnb</h3>
             <div className='button-div'>
-            <button onClick={demoLogin}>Log in as guest</button>
+            <button className='login-button' onClick={demoLogin}>Log in as guest</button>
             </div>
         </div>
        
