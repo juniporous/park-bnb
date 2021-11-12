@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllBookings } from "../../store/bookings";
 import { addBooking } from "../../store/bookings";
-import { useHistory } from "react-router";
+import { useHistory, Redirect } from "react-router";
 import './createBooking.css'
 
 
@@ -16,13 +16,23 @@ const CreateBooking = ({ spotId, spotOwnerId }) => {
     useEffect(() => {
       dispatch(getAllBookings());
     }, [dispatch])
+
+    
+  
  
-    const sessionUser = useSelector((state) => state.session.user)
-    const clientId = sessionUser.id
+    
+    
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [errors, setErrors] = useState([]);
     const history = useHistory();
+    
+    const sessionUser = useSelector((state) => state.session.user)
+    if(!sessionUser) {
+      return <Redirect to="/" />;
+    }
+    const clientId = sessionUser.id
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -35,11 +45,9 @@ const CreateBooking = ({ spotId, spotOwnerId }) => {
           endDate,
         };
         
-        if (endDate && startDate) {
-          history.push('/bookings')
-        }
+        
 
-        return dispatch(addBooking(payload)).catch(
+        dispatch(addBooking(payload)).catch(
           async (res) => {
             const data = await res.json();
             if (data && data.errors) {
@@ -48,7 +56,9 @@ const CreateBooking = ({ spotId, spotOwnerId }) => {
           } 
         );
         
-        
+        if (endDate && startDate) {
+          history.push('/bookings')
+        }
 
       };
       

@@ -3,20 +3,31 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAllSpots } from "../../store/spots";
 import { deleteSpot } from "../../store/spots";
 import { updateSpot } from "../../store/spots";
+import { useHistory } from "react-router";
 import EditSpotForm from "../UpdateSpot";
 import './spots.css'
 
 const Spots = () => {
   const dispatch = useDispatch();
+  const sessionUser = useSelector((state) => state.session.user)
+  const history = useHistory();
+
+  if(!sessionUser) {
+    history.push('/')
+  }
   const spots = useSelector(state => Object.values(state.spot));
   useEffect(() => {
     dispatch(getAllSpots());
   }, [dispatch])
-  const sessionUser = useSelector((state) => state.session.user)
+  // const sessionUser = useSelector((state) => state.session.user)
   
-  //const mySpots = spots.find(spot => spot.ownerId === sessionUser.id)
+  // //const mySpots = spots.find(spot => spot.ownerId === sessionUser.id)
 
+  // const history = useHistory();
 
+  // if(!sessionUser) {
+  //   history.push('/')
+  // }
 
   const handleDelete = (id) => {
     dispatch(deleteSpot(id));
@@ -28,7 +39,7 @@ const Spots = () => {
         </h3>
         <ul className='ul'>
           {spots?.map(spot => (
-            spot.ownerId === sessionUser.id?
+            spot?.ownerId === sessionUser?.id?
             <li key={spot.id}>
               <div class="card">
                 <div>
