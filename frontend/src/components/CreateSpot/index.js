@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { addSpot } from '../../store/spots';
+import { useHistory } from 'react-router';
 import './createSpot.css'
 
 
@@ -15,7 +16,7 @@ const CreateSpot = () => {
   const [imgUrl, setImgUrl] = useState('');
   const [description, setDescription] = useState('');
   const [errors, setErrors] = useState([]);
-  
+  const history = useHistory()
   const dispatch = useDispatch();
   
   const sessionUser = useSelector((state) => state.session.user)
@@ -39,7 +40,7 @@ const CreateSpot = () => {
       description
     };
     //dispatch(addSpot(payload));
-    return dispatch(addSpot(payload)).catch(
+    dispatch(addSpot(payload)).catch(
       async (res) => {
         const data = await res.json();
         if (data && data.errors) {
@@ -47,7 +48,12 @@ const CreateSpot = () => {
         } 
       } 
     );
-    //history.push('/');
+
+    
+    if (name, state, city, address, description) {
+      history.push('/mySpots');
+    }
+    
   };
 
   
