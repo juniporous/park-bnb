@@ -8,6 +8,8 @@ ParkBnb is a listing and booking application for private parking spots. Users wh
 
 ## Feature List
 
+https://github.com/juniporous/park-bnb/wiki/MVP-List
+
 ## DB Schema
 
 https://github.com/juniporous/park-bnb/wiki/Database-Schema
