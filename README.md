@@ -1,6 +1,5 @@
-## Live link:
-
-https://park-bnb.herokuapp.com/mySpots
+# ParkBnb
+* By Anthony Fahden - [Visit ParkBnb] (https://park-bnb.herokuapp.com/mySpots)*
 
 ## Description
 
@@ -13,12 +12,6 @@ https://github.com/juniporous/park-bnb/wiki/MVP-List
 ## DB Schema
 
 https://github.com/juniporous/park-bnb/wiki/Database-Schema
-
-///////
-
-
-# ParkBnb
-* By Anthony Fahden - [Visit ParkBnb] (https://park-bnb.herokuapp.com/mySpots)*
 
 
 ## Traileo at a glance
