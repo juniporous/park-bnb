@@ -70,7 +70,7 @@ A simple form checks for required fields and creates new spots. Newly created sp
 Logged in users are able to view bookings in the 'My Bookings' tab. Bookings that appear in this section are created in the 'Book Spot' tab.
 
 <p align="center">
-  <a href="https://user-images.githubusercontent.com/33510714/147784660-3d2f6997-0d3a-4a53-b245-e0f523ccde56.png" target="_blank"><img src="https://user-images.githubusercontent.com/33510714/147784660-3d2f6997-0d3a-4a53-b245-e0f523ccde56.png"
+  <a href="https://user-images.githubusercontent.com/33510714/151234624-88376fc8-0a2c-4b83-a52a-4b6ee7c8db48.png" target="_blank"><img src="https://user-images.githubusercontent.com/33510714/151234624-88376fc8-0a2c-4b83-a52a-4b6ee7c8db48.png"
   /></a>
   <br> 
 </p>
